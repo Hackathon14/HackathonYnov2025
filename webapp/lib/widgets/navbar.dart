@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:webapp/features/dashboard/presentation/dashboard_page.dart';
-import 'package:webapp/widgets/users_table.dart';
+import 'package:webapp/features/dashboard/dashboard_page.dart';
+import 'package:webapp/features/user_table/userstable_page.dart';
 
 class AppNavbar extends StatelessWidget implements PreferredSizeWidget {
   @override
