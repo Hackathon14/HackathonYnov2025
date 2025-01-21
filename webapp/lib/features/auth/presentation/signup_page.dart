@@ -19,13 +19,13 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inscription'),
+        title: const Text('Scan & Win'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushNamed(
-                context, '/dashboard'); // Navigue vers la page d'accueil
+                context, '/home'); // Navigue vers la page d'accueil
           },
         ),
       ),

@@ -17,12 +17,13 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Connexion'),
+        title: const Text('Scan & Win'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {
-            Navigator.pushNamed(context, '/'); // Navigue vers la page d'accueil
+            Navigator.pushNamed(
+                context, '/home'); // Navigue vers la page d'accueil
           },
         ),
       ),
