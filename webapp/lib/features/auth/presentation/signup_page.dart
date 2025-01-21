@@ -24,7 +24,8 @@ class _SignupPageState extends State<SignupPage> {
         leading: IconButton(
           icon: const Icon(Icons.home),
           onPressed: () {
-            Navigator.pushNamed(context, '/'); // Navigue vers la page d'accueil
+            Navigator.pushNamed(
+                context, '/dashboard'); // Navigue vers la page d'accueil
           },
         ),
       ),
