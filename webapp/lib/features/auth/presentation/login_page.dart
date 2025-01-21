@@ -6,6 +6,17 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Scan & Win'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.home),
+          onPressed: () {
+            Navigator.pushNamed(
+                context, '/home'); // Navigue vers la page d'accueil
+          },
+        ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -21,7 +32,7 @@ class LoginPage extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: ConstrainedBox(
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                   maxWidth: 400), // Limite la largeur de la carte
               child: Card(
                 elevation: 10,
