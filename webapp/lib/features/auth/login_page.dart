@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Scan & Win'),
+        title: const Text('Recycly'),
         centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.home),
