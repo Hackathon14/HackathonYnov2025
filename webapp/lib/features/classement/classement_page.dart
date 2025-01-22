@@ -1,36 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:webapp/widgets/navbar.dart';
 
-class DataUserPage extends StatelessWidget {
+class ClassementPage extends StatelessWidget {
   final List<Map<String, dynamic>> users = [
-    {
-      "nom": "Dupont",
-      "prenom": "Jean",
-      "email": "jean.dupont@gmail.com",
-      "commune": "Paris",
-      "type": "Mobile",
-      "date": "2025-01-01"
-    },
-    {
-      "nom": "Martin",
-      "prenom": "Alice",
-      "email": "alice.martin@gmail.com",
-      "commune": "Lyon",
-      "type": "Web",
-      "date": "2025-01-02"
-    },
-    {
-      "nom": "Durand",
-      "prenom": "Paul",
-      "email": "paul.durand@gmail.com",
-      "commune": "Marseille",
-      "type": "Admin",
-      "date": "2025-01-03"
-    },
+    {"classement": 1, "nom": "Dupont", "prenom": "Jean", "co2": 120.5},
+    {"classement": 2, "nom": "Martin", "prenom": "Alice", "co2": 110.2},
+    {"classement": 3, "nom": "Durand", "prenom": "Paul", "co2": 95.7},
   ];
 
   @override
   Widget build(BuildContext context) {
+    double totalCO2 = users.fold(0, (sum, user) => sum + user['co2']);
     int totalUsers = users.length;
 
     return Scaffold(
@@ -66,6 +46,14 @@ class DataUserPage extends StatelessWidget {
                             color: Colors.blueAccent,
                           ),
                         ),
+                        Text(
+                          'Total CO2 produit : ${totalCO2.toStringAsFixed(1)} kg',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 20),
@@ -95,6 +83,12 @@ class DataUserPage extends StatelessWidget {
                             columns: const [
                               DataColumn(
                                 label: Text(
+                                  'Classement',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              DataColumn(
+                                label: Text(
                                   'Nom',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
@@ -107,25 +101,7 @@ class DataUserPage extends StatelessWidget {
                               ),
                               DataColumn(
                                 label: Text(
-                                  'Email',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              DataColumn(
-                                label: Text(
-                                  'Commune',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              DataColumn(
-                                label: Text(
-                                  'Type',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              DataColumn(
-                                label: Text(
-                                  'Date de Création',
+                                  'CO2 Produit (kg)',
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -133,12 +109,11 @@ class DataUserPage extends StatelessWidget {
                             rows: users
                                 .map(
                                   (user) => DataRow(cells: [
+                                    DataCell(
+                                        Text(user['classement'].toString())),
                                     DataCell(Text(user['nom'])),
                                     DataCell(Text(user['prenom'])),
-                                    DataCell(Text(user['email'])),
-                                    DataCell(Text(user['commune'])),
-                                    DataCell(Text(user['type'])),
-                                    DataCell(Text(user['date'])),
+                                    DataCell(Text('${user['co2']}')),
                                   ]),
                                 )
                                 .toList(),
